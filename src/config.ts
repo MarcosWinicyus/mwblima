@@ -2,15 +2,21 @@ export const siteConfig = {
   name: "Marcos Winicyus",
   title: "Senior Analytics Engineer",
   description: "Portfolio website of Marcos Winicyus",
-  accentColor: "#1d4ed8",
+  accentColor: "#2A7F6E",
+  heroHeadline: "Architecting intelligent systems that transform complexity into clarity.",
+  heroSubheadline: "I design and build scalable data platforms and AI solutions that solve complex problems and generate real business impact.",
   social: {
     email: "marcoswinicyusbl@gmail.com",
     linkedin: "https://www.linkedin.com/in/marcos-winicyus",
     twitter: "",
     github: "https://github.com/MarcosWinicyus",
   },
-  aboutMe:
-    "Senior Data Engineer and AI Engineer with 7+ years building high-scale data platforms for financial institutions including Nubank and Itaú. Currently modernizing Nubank's Lending data platform. As a key driver of Nubank's 'AI-First' strategy, I engineer autonomous Agentic Workflows to reinvent development and operational processes, eliminate technical debt, and accelerate software development cycles.",
+  aboutMe: [
+    "Marcos is a Senior Analytics Engineer and AI Engineer with 7+ years building high-scale data platforms for financial institutions including Nubank and Itaú.",
+    "Currently modernizing Nubank's Lending data platform. As a key driver of Nubank's 'AI-First' strategy, he engineers autonomous Agentic Workflows to reinvent development and operational processes, eliminate technical debt, and accelerate software development cycles.",
+    "Previously at Itaú, he led data engineering teams to implement Data Mesh architectures and built RAG-powered systems that drastically reduced documentation and development cycles.",
+    "He holds a Master of Business Administration in Solutions Architecture from Full Cycle and a Bachelor's Degree in Computer Science from IFG."
+  ],
   skills: [
     "Agentic Workflows",
     "MCP",
@@ -45,6 +51,32 @@ export const siteConfig = {
       link: "https://marcoswinicyus.substack.com/p/arquitetura-de-orquestracao-na-pratica",
       skills: ["AWS Step Functions", "Terraform", "FinOps"],
     },
+  ],
+  articles: [
+    {
+      title: "Designing Data Platforms with Domain-Driven Data Mesh",
+      date: "MAY 12, 2025",
+      category: "Data Architecture",
+      link: "#",
+    },
+    {
+      title: "Agentic Workflows: The Next Evolution of Automation",
+      date: "APR 28, 2025",
+      category: "AI & Automation",
+      link: "#",
+    },
+    {
+      title: "From Data to Decisions: Building Systems that Matter",
+      date: "APR 10, 2025",
+      category: "Systems Thinking",
+      link: "#",
+    },
+    {
+      title: "Data in Production: Lessons from Real Implementations",
+      date: "MAR 25, 2025",
+      category: "GenAI",
+      link: "#",
+    }
   ],
   experience: [
     {
