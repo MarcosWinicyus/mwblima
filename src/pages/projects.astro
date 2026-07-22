@@ -1,0 +1,87 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { siteConfig } from "../config";
+import "../styles/global.css";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/x-icon" href={`${import.meta.env.BASE_URL}Logo_icon.ico`} />
+    <link rel="shortcut icon" href={`${import.meta.env.BASE_URL}Logo_icon.ico`} />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={siteConfig.description} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <title>{siteConfig.name} - Projects</title>
+  </head>
+  <body class="bg-[var(--color-bg-base)]">
+    <Header />
+    
+    <div class="pt-32"></div>
+
+    <section class="py-12 sm:py-24 max-w-[1400px] mx-auto px-8 w-full min-h-[70vh]">
+      <div class="mb-12">
+        <span class="text-xs font-mono font-bold tracking-[0.2em] uppercase text-[var(--color-accent-primary)] mb-4 block">Portfolio</span>
+        <h1 class="text-4xl lg:text-5xl font-display text-gray-900 font-medium tracking-tight leading-tight">
+          All Projects
+        </h1>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        {siteConfig.projects.map((project, index) => {
+          const Component = project.link ? "a" : "div";
+          const linkProps = project.link ? { href: project.link, target: "_blank", rel: "noopener noreferrer" } : {};
+
+          return (
+            <Component
+              {...linkProps}
+              class="group flex flex-col bg-white rounded-xl overflow-hidden border border-gray-200 hover:shadow-xl hover:border-gray-300 transition-all duration-300"
+            >
+              <!-- Header Image Placeholder -->
+              <div class="w-full h-[200px] bg-[#111318] relative overflow-hidden flex items-center justify-center">
+                  <!-- Abstract Graphic -->
+                  <svg class="absolute inset-0 w-full h-full opacity-30" viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg">
+                    <g stroke="#ffffff" stroke-width="0.5" fill="none">
+                        {Array.from({length: 15}).map((_, i) => (
+                          <path d={`M -50 ${50 + i*10} Q 150 ${150 - i*15}, 450 ${100 + i*5}`} opacity={1 - i/15} />
+                        ))}
+                    </g>
+                  </svg>
+              </div>
+              
+              <!-- Card Content -->
+              <div class="p-6 flex flex-col grow">
+                <span class="text-sm font-mono font-bold text-[var(--color-accent-primary)] mb-3">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <h3 class="text-xl font-bold font-mono text-gray-900 mb-3 group-hover:text-[var(--color-accent-primary)] transition-colors">
+                  {project.name}
+                </h3>
+                <p class="text-sm text-gray-600 mb-6 leading-relaxed">
+                  {project.description}
+                </p>
+                
+                <div class="mt-auto flex flex-wrap gap-2">
+                  {project.skills && project.skills.map((skill) => (
+                    <span class="px-2.5 py-1 bg-white border border-gray-200 text-gray-600 rounded text-[11px] font-mono tracking-wide uppercase">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </Component>
+          );
+        })}
+      </div>
+    </section>
+    
+    <Footer />
+  </body>
+</html>
